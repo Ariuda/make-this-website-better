@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +15,7 @@ body {
 
 .navbar {
   align-items: center;
-  background: black;
+  background: #fff;
   display: flex;
   padding: 1em;
 }
@@ -27,37 +31,80 @@ body {
 }
 
 .navbar__link {
-  color: white;
   margin: 0 .5em;
   text-decoration: none;
 }
 
-.hero {
-  background: #999;
-  padding: 5%;
+main {
+  
 }
 
-.main {
+.hero {
+  /*background-color: #663dff;
+  background-image: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);*/
+  background-color: #EEEDFD;
+  width: 100%;
+  padding: 5%;
+  height: 60vh;
+}
+
+.hero__text__container {
+  max-width: 1280px;
+  width: 100%;
+  text-align: center;
+  color: #333363;
+}
+
+.hero__title {
+  font-size: 4em;
+  
+}
+
+.hero__subtitle {
+  font-size: 2em;
+}
+
+.form__container {
+  position: relative;
+  top: -150px;
   flex: 1 1 auto;
   margin: auto;
   max-width: 40em;
-  padding: 5%;
+  padding: 7%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 5px 10px 18px #888888;
 }
 
 .footer {
-  background: #999;
-  padding: 5%;
+  border-top: 1px solid #c8c8c8;
+  padding: 2%;
 }
 
 .form-group {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 .form-group__label {
   display: block;
+  font-size: 14px;
 }
 
 .form-group__input {
   display: block;
   width: 100%;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 10px 5px;
+}
+
+.form-group__input:focus {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.error-message {
+  color: #a50000;
+  font-size: 12px;
 }
