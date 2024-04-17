@@ -9,12 +9,14 @@ class FormValidator {
     }
 
     checkUserInput() {
+        this.formHasErrors();
         this.fields.forEach(field => {
             const input = document.querySelector(`#${field}`);
             this.errors[input.id] = {};
 
             input.addEventListener('input', event => {
                 this.validateFields(input);
+                this.formHasErrors();
             });
             input.addEventListener('blur', event => {
                 this.validateFields(input);
@@ -23,23 +25,24 @@ class FormValidator {
     }
 
     validateFields(field) {
-        if(field.value.trim() === '' && !this.errors[field.id].required) {
+        const errors = this.errors[field.id];
+
+        if(field.value.trim() === '' && !errors.required) {
             this.setStatus(field, 'Required field', 'error', 'required');
-            this.errors[field.id].required = true;
-        } else if(field.value.trim() !== '' && this.errors[field.id].required) {
+            errors.required = true;
+        } else if(field.value.trim() !== '' && errors.required) {
             this.setStatus(field, '', 'success', 'required');
-            this.errors[field.id].required = false;
+            errors.required = false;
         }
 
         if(field.type === 'email') {
             const r = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if(!r.test(field.value) && !this.errors[field.id].email) {
+            if(!r.test(field.value) && !errors.email) {
                 this.setStatus(field, 'Please enter a valid email', 'error', 'emailFormat');
-                this.errors[field.id].email = true;
-            } else if(r.test(field.value) && this.errors[field.id].email) {
-                
+                errors.email = true;
+            } else if(r.test(field.value) && errors.email) {
                 this.setStatus(field, '', 'success', 'emailFormat');
-                this.errors[field.id].email = false;
+                errors.email = false;
             }
         }
     }
@@ -57,28 +60,26 @@ class FormValidator {
         if(status === 'success') {
             const msg = field.parentElement.querySelector(`.${type}`);
             if(msg) msg.remove();
-        }
-        
-        
+        }  
+    }
+
+    formHasErrors() {
+        const form = document.querySelector('.form');
+        const button = document.querySelector('#submit-button');
+        form.checkValidity() ? button.disabled = false : button.disabled = true;
     }
 }
 
 const form = document.querySelector('.form');
-const fields = ['name', 'email', 'telephone'];
+const fields = ['name', 'email', 'telephone', 'years', 'why'];
 
 const formValidation = new FormValidator(form, fields);
 formValidation.checkUserInput();
-
-class TabsController {
-
-}
 
 // make html semantic
 // improve form accessibility
 // add form validation
 // add form clues
-// add select with area of expertise or something
-// add some nice hero banner
-// style form nicely
+// style form
 // style nav to match rest of site
 // make it responsive

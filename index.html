@@ -31,81 +31,75 @@
           
         </div>
         <div class="form__container">
-          <form class="form"  method="POST">
+          <p class="form-instructions">Fields marked with and asterisk (<span class="required">*</span>) are required</p>
+          <form class="form" action="https://formspree.io/f/xaylazjw" method="POST">
             <input type="hidden" name="id" value="123456">
-            <div class="tab-menu">
-              <p class="personal-details">Personal details</p>
-              <p class="">Professional information</p>
-              <p class="other">Other</p>
+            <div class="form-group">
+              <label class="form-group__label label-required" for="name">Name</label>
+              <input class="form-group__input" type="text" name="name" id="name" required aria-required="true">
+              <span class="underline-animation"></span>
             </div>
-            <div class="tab" id="personal-details">
-              <p>Personal details</p>
-              <div class="form-group">
-                <label class="form-group__label" for="name">Name</label>
-                <input class="form-group__input" type="text" name="name" id="name">
-              </div>
-              <div class="form-group">
-                <label class="form-group__label" for="email">Email</label>
-                <input class="form-group__input" type="email" name="email" id="email">
-              </div>
+            <div class="form-group">
+              <label class="form-group__label label-required" for="email">Email</label>
+              <input class="form-group__input" type="email" name="email" id="email" required aria-required="true">
+              <span class="underline-animation"></span>
+            </div>
+            <div class="form-row">
               <div class="form-group">
                 <label class="form-group__label" for="dob">Date of birth</label>
                 <input class="form-group__input" type="date" name="dob" id="dob">
+                <span class="underline-animation"></span>
               </div>
-              <div class="form-group">
-                <label class="form-group__label" for="telephone">Telephone number</label>
-                <input class="form-group__input" type="number" name="telephone" id="telephone">
-              </div>
-              <div class="form-group">
-                <label class="form-group__label" for="address">Address</label>
-                <input class="form-group__input" type="text" name="address" id="address">
+              <div class="form-group telephone-input">
+                <label class="form-group__label label-required" for="telephone">Telephone number</label>
+                <input class="form-group__input" type="number" name="telephone" id="telephone" required aria-required="true">
+                <span class="underline-animation"></span>
               </div>
             </div>
-            
+            <div class="form-group">
+              <label class="form-group__label" for="address">Address</label>
+              <input class="form-group__input" type="text" name="address" id="address">
+              <span class="underline-animation"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-group__label label-required" for="years">Number of years experience</label>
+              <input class="form-group__input" type="text" name="years" id="years" required aria-required="true">
+              <span class="underline-animation"></span>
+            </div>
   
-            
-            <div class="tab" id="professional-info">
-              <p class="professional-info">Professional information</p>
-              <div class="form-group">
-                <label class="form-group__label" for="years">Number of years experience</label>
-                <input class="form-group__input" type="text" name="years" id="years">
-              </div>
-    
-              <div class="form-group">
-                <p class="form-group__label">Favourite web development topics</p>
-                <div class="form-group">
-                  <input class="form-group__checkbox" type="checkbox" name="fav-hex-colours" id="fav-hex-colours">
+            <div class="form-group">
+              <fieldset>
+                <legend class="form-group__label">Favourite web development topics</legend>
+                <div class="form-group__checkbox-container">
+                  <input class="form-group__checkbox" type="checkbox" name="favourites" value="fav-hex-colours" id="fav-hex-colours">
+                  <span class="custom-checkmark"></span>
                   <label for="fav-hex-colours">Hex colours</label> 
                 </div>
-                <div class="form-group">
-                  <input class="form-group__checkbox" type="checkbox" name="fav-accessibility" id="fav-accessibility">
+                <div class="form-group__checkbox-container">
+                  <input class="form-group__checkbox" type="checkbox" name="favourites" value="fav-accessibility" id="fav-accessibility">
                   <label for="fav-accessibility">Accessibility</label>
                 </div>
-                <div class="form-group">
-                  <input class="form-group__checkbox" type="checkbox" name="fav-node" id="fav-node">
+                <div class="form-group__checkbox-container">
+                  <input class="form-group__checkbox" type="checkbox" name="favourites" value="fav-node" id="fav-node">
                   <label for="fav-node">Node modules</label>
                 </div>
-                <div class="form-group">
-                  <input class="form-group__checkbox" type="checkbox" name="fav-js-frameworks" id="fav-js-frameworks">
+                <div class="form-group__checkbox-container">
+                  <input class="form-group__checkbox" type="checkbox" name="favourites" value="fav-js-frameworks" id="fav-js-frameworks">
                   <label for="fav-js-frameworks">Javascript frameworks</label>
                 </div>
-                <div class="form-group">
-                  <input class="form-group__checkbox" type="checkbox" name="fav-bbq" id="fav-bbq">
+                <div class="form-group__checkbox-container">
+                  <input class="form-group__checkbox" type="checkbox" name="favourites" value="fav-bbq" id="fav-bbq">
                   <label for="fav-bbq">BBQ</label>
                 </div>
-                
-              </div>
+              </fieldset>        
             </div>
-            
-            <div class="tab" id="other">
-              <div class="form-group">
-                <label class="form-group__label" for="why">Why I want to work at Etch</label>
-                <textarea name="why" id="why" class="form-group__textarea"></textarea>
-              </div>
-  
-              <button>I want to work at Etch</button>
+            <div class="form-group">
+              <label class="form-group__label label-required" for="why">Why I want to work at Etch</label>
+              <textarea name="why" id="why" class="form-group__input" required aria-required="true"></textarea>
+              <span class="underline-animation"></span>
             </div>
-            
+
+            <button id="submit-button">I want to work at Etch</button>         
           </form>
         </div>
       </main>
@@ -116,5 +110,3 @@
     <script src="./script.js"></script>
   </body>
 </html>
-
-<!--action="https://formspree.io/f/xaylazjw"-->
